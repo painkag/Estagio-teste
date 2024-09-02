@@ -1,0 +1,35 @@
+const jsonData = {
+  "faturamento": [
+    {"dia": "2024-01-01", "valor": 5},
+    {"dia": "2024-01-02", "valor": 12},
+    {"dia": "2024-01-03", "valor": 7},
+    {"dia": "2024-01-04", "valor": 23},
+    {"dia": "2024-01-05", "valor": 0},  
+    {"dia": "2024-01-30", "valor": 10}
+  ]
+};
+
+const lista = jsonData.faturamento
+  .map(item => item.valor)
+  .filter(valor => valor > 0);
+
+let menorNumero = Math.min(...lista);
+let maiorNumero = Math.max(...lista);
+
+let soma = 0;
+for (let i = 0; i < lista.length; i++) {
+  soma += lista[i];
+}
+
+let media = soma / lista.length;
+
+let diasAcimaMedia = 0;
+for (let i = 0; i < lista.length; i++) {
+  if (lista[i] > media) {
+    diasAcimaMedia++;
+  }
+}
+
+console.log('Menor valor de faturamento:', menorNumero);
+console.log('Maior valor de faturamento:', maiorNumero);
+console.log('Número de dias com faturamento acima da média mensal:', diasAcimaMedia);
