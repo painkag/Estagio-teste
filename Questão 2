@@ -1,0 +1,20 @@
+var numero = 10;
+var ultimo = 1;
+var penultimo = 0;
+var proximo = penultimo + ultimo;
+
+if (numero === 0 || numero === 1) {
+  console.log(`O número ${numero} pertence à sequência de Fibonacci.`);
+} else {
+  while (proximo < numero) {
+    penultimo = ultimo;
+    ultimo = proximo;
+    proximo = penultimo + ultimo;
+  }
+
+  if (proximo === numero) {
+    console.log(`O número ${numero} pertence à sequência de Fibonacci.`);
+  } else {
+    console.log(`O número ${numero} não pertence à sequência de Fibonacci.`);
+  }
+}
